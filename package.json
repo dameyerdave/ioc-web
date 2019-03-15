@@ -1,0 +1,14 @@
+{
+  "name": "ioc-web",
+  "version": "1.0.0",
+  "description": "Web API to ioc in mongodb",
+  "author": "David MeyerLast <dameyerdave@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "*",
+    "mongodb": "*"
+  }
+}
