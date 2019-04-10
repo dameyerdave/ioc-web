@@ -3,11 +3,11 @@
 const express = require('express');
 
 // Constants
-const PORT = 1380;
+const PORT = 3080;
 const HOST = '0.0.0.0';
 
 var mongo = require('mongodb');
-var url = "mongodb://localhost:27018/";
+var url = "mongodb://" + process.env.MONGO_HOST + ":" + process.env.MONGO_PORT + "/";
 
 function doFind(query, req, res, format='json') {
 	var limit = parseInt(req.query.limit) || -1 
