@@ -5,7 +5,7 @@ const express = require('express');
 // Constants
 const PORT = 3080;
 const HOST = '0.0.0.0';
-const TZ = 2
+const TZ = process.env.TIMEZONE
 
 var mongo = require('mongodb');
 var url = "mongodb://" + process.env.MONGO_HOST + ":" + process.env.MONGO_PORT + "/";

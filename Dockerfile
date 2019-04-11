@@ -7,6 +7,7 @@ RUN git clone https://github.com/dameyerdave/ioc-web /opt/iocweb
 RUN cd /opt/iocweb; /usr/bin/npm i
 ENV MONGO_HOST localhost
 ENV MONGO_PORT 27017
+ENV TIMEZONE 2
 EXPOSE 3080
 USER root
 WORKDIR /opt/iocweb

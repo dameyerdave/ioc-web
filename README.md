@@ -14,9 +14,9 @@ dtip mongo
 ```
 ## Run the iocweb docker container
 ```bash
-docker run --name iocweb --hostname iocweb -e MONGO_HOST=<ip> -e MONGO_PORT=27017 -p 3080 -it -d dmeyerdave/iocweb
+docker run --name iocweb --hostname iocweb -e MONGO_HOST=<ip> -e MONGO_PORT=27017 -e TIMEZONE=2 -p 3080 -it -d dmeyerdave/iocweb
 ```
 ### Example
 ```bash
-docker run --name iocweb --hostname iocweb -e MONGO_HOST=172.30.0.5 -e MONGO_PORT=27017 -p 1380:3080 -it -d dameyerdave/iocweb
+docker run --name iocweb --hostname iocweb -e MONGO_HOST=172.30.0.5 -e MONGO_PORT=27017 -e TIMEZONE=2 -p 1380:3080 -it -d dameyerdave/iocweb
 ```
