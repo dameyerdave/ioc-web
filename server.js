@@ -22,7 +22,7 @@ function doFind(query, req, res, format='json') {
 	from.setMinutes(0)
 	from.setSeconds(0)
 	from.setDate(from.getDate() - days);
-	query.timestamp = {$gt: from, $lt: now}
+	query.createDate = {$gt: from, $lt: now}
 
 	if (req.query.fields) {
 		format = 'csv'
