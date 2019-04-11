@@ -5,6 +5,7 @@ const express = require('express');
 // Constants
 const PORT = 3080;
 const HOST = '0.0.0.0';
+const TZ = 2
 
 var mongo = require('mongodb');
 var url = "mongodb://" + process.env.MONGO_HOST + ":" + process.env.MONGO_PORT + "/";
@@ -22,6 +23,7 @@ function doFind(query, req, res, format='json') {
 	from.setMinutes(0)
 	from.setSeconds(0)
 	from.setDate(from.getDate() - days);
+	now.setHours(now.getHours() + TZ)
 	query.createDate = {$gt: from, $lt: now}
 
 	if (req.query.fields) {
@@ -29,7 +31,7 @@ function doFind(query, req, res, format='json') {
 	}
 
 	mongo.connect(url, { useNewUrlParser: true }).then((mcli) => {
-		return mcli.db('ioc').collection('iocs').find(query).sort({timestamp: -1}).limit(limit).toArray()
+		return mcli.db('ioc').collection('iocs').find(query).sort({createDate: -1}).limit(limit).toArray()
 	}).then((docs) => {
 		if (format === 'json') {
 			res.write(JSON.stringify(docs))
